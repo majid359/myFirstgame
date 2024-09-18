@@ -3,10 +3,12 @@
   box-sizing: border-box;
 }
 
-.game {
+.gbtn {
   display: flex;
-  flex-direction: column; 
   align-items: center; 
+}
+.game{
+  margin-bottom: 20px;
 }
 
 .game button {
@@ -44,8 +46,8 @@ button:hover {
 }
 
 .game button img {
-  width: 60px;
-  height: 60px;
+  width: 50px;
+  height: 50px;
   background: transparent;
   border-radius: 50%;
   cursor: pointer;
@@ -77,22 +79,143 @@ button:hover {
   background-color: aquamarine;
   padding: 100px;
   border-radius: 20px;
-  min-height: 100vh;
+}
+* {
+  font-family: 'Montserrat', sans-serif;
+  box-sizing: border-box;
+}
+
+.game {
+  display: flex;
+  flex-direction: column; 
+  align-items: center; 
+}
+
+.game button {
+  width: 100px;
+  height: 60px;
+  border: 2px solid violet;
+  font-weight: 600;
+  margin: 10px; 
+}
+
+button {
+  background-color: blue;
+  padding: 20px;
+  border-radius: 10px;
+  font-family: monospace;
+  font-size: 12px;
+  color: white;
+  transition: background-color 0.3s;
+}
+
+button:hover {
+  background-color: darkblue;
+}
+
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0, 0, 0, 0.4);
+}
+
+.modal-content {
+  background-color: white;
+  margin: 15% auto;
+  padding: 20px;
+  border: 1px solid #888;
+  width: 80%;
+  max-width: 300px;
+  text-align: center;
+}
+
+.close {
+  color: #aaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
 }
 
 @media only screen and (max-width: 767px) {
+  .app {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: aquamarine;
+    padding: 100px;
+    border-radius: 20px;
+    min-height: 80vh;
+  }
   .game button {
     display: flex; 
-    flex-direction: row; 
+    flex-direction: column; 
     align-items: center; 
   }
 
   .game button p {
-    margin-left: 10px; 
+    padding-left: -190px; 
   }
 
   .user-comp {
     flex-direction: column; 
     align-items: center; 
+  }
+}
+@media only screen and (max-width: 844px) {
+  .app {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: aquamarine;
+    padding: 100px;
+    border-radius: 20px;
+    min-height: 80vh;
+  }
+  .game button {
+    width: 70px;
+    height: 40px;
+    display: flex; 
+    flex-direction: column; 
+    align-items: center; 
+    justify-content: space-between;
+    padding-top: 5px;
+  }
+
+
+.game button img{
+  width: 30px;
+  height: 30px;
+}
+  .game button p {
+    margin-left: 10px; 
+  }
+
+  .user-comp {
+    display: flex;
+    align-items: center; 
+    justify-content: space-around;
+  }
+  .user-comp .comparison h4{
+    font-size: 14px;
+  }
+  .user-comp .comparison{
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
 }
