@@ -5,26 +5,24 @@
 
 .game {
   display: flex;
-  flex-direction: column;
-  align-items: center;
+  flex-direction: column; 
+  align-items: center; 
 }
 
 .game button {
-  width: 90%;
-  max-width: 150px;
-  height: 50px;
+  width: 100px;
+  height: 60px;
   border: 2px solid violet;
   font-weight: 600;
-  margin: 10px;
-  overflow: hidden;
-  padding: 5px;
+  margin: 10px; 
 }
 
 button {
   background-color: blue;
+  padding: 20px;
   border-radius: 10px;
   font-family: monospace;
-  font-size: 14px;
+  font-size: 12px;
   color: white;
   transition: background-color 0.3s;
 }
@@ -46,8 +44,8 @@ button:hover {
 }
 
 .game button img {
-  width: 40px;
-  height: 40px;
+  width: 60px;
+  height: 60px;
   background: transparent;
   border-radius: 50%;
   cursor: pointer;
@@ -56,12 +54,6 @@ button:hover {
 
 .game button img:hover {
   transform: scale(0.8);
-}
-
-.comparison {
-  display: flex;
-  justify-content: space-around;
-  width: 100%;
 }
 
 .comparison img {
@@ -73,10 +65,8 @@ button:hover {
 
 .user-comp {
   display: flex;
-  justify-content: center; 
-  flex-direction: row; 
-  flex-wrap: wrap;
-  width: 100%;
+  justify-content: space-around;
+  flex-wrap: wrap; 
 }
 
 .app {
@@ -91,57 +81,18 @@ button:hover {
 }
 
 @media only screen and (max-width: 767px) {
-  .app {
-    padding: 20px;
-  }
-
   .game button {
-    width: 90%;
-    height: 50px;
-    display: flex;
-    align-items: center; /* Align items in mobile view */
+    display: flex; 
+    flex-direction: row; 
+    align-items: center; 
   }
 
   .game button p {
-    margin-left: 10px; /* Space between image and text */
-  }
-
-  button {
-    font-size: 12px;
+    margin-left: 10px; 
   }
 
   .user-comp {
-    flex-direction: column;
-    align-items: center;
-  }
-}
-
-@media only screen and (min-width: 768px) and (max-width: 1024px) {
-  .app {
-    padding: 70px;
-  }
-
-  .game button {
-    width: 90%;
-    height: 55px;
-  }
-
-  button {
-    font-size: 12px;
-  }
-}
-
-@media only screen and (min-width: 1025px) {
-  .app {
-    padding: 100px;
-  }
-
-  .game button {
-    width: 100px;
-    height: 60px;
-  }
-
-  button {
-    font-size: 14px;
+    flex-direction: column; 
+    align-items: center; 
   }
 }
