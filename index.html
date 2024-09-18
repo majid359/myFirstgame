@@ -4,12 +4,8 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
-<style>
-  @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
-  </style>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
-  <title>Document</title>
   <title>Rock Paper Scissors Game</title>
 </head>
 <body>
@@ -17,78 +13,90 @@
   <div>
     <div class="game">
       <h1>Choose a move:</h1>
-      <button onclick="makemove('rock')" class="rockbtn">Rock<img src="img/rock.png" alt=""></button>
-      <button onclick="makemove('paper')" class="paperbtn">Paper<img src="img/paper.png" alt=""></button>
-      <button onclick="makemove('scissors')" class="scissorbtn">Scissors<img src="img/scissors.jpg" alt=""></button>
+      <div class="gbtn">
+        <button onclick="makemove('rock')" class="rockbtn">Rock<img src="img/rock.png" alt=""></button>
+        <button onclick="makemove('paper')" class="paperbtn"><p>Paper</p><img src="img/paper.png" alt=""></button>
+        <button onclick="makemove('scissors')" class="scissorbtn"><p>Scissors</p><img src="img/scissors.jpg" alt=""></button>
+      </div>
     </div>
-  <div class="user-comp">
-    <div class="comparison">
-      <h4>You've Picked:</h4>
-      <img id="rock" class="move-image" src="img/rock.png" alt="Rock" style="display: none;">
-      <img id="paper" class="move-image" src="img/paper.png" alt="Paper" style="display: none;">
-      <img id="scissors" class="move-image" src="img/scissors.jpg" alt="Scissors" style="display: none;">
+    <div class="user-comp">
+      <div class="comparison">
+        <h4>You've Picked:</h4>
+        <img id="rock" class="move-image" src="img/rock.png" alt="Rock" style="display: none;">
+        <img id="paper" class="move-image" src="img/paper.png" alt="Paper" style="display: none;">
+        <img id="scissors" class="move-image" src="img/scissors.jpg" alt="Scissors" style="display: none;">
+      </div>
+      <div class="comparison">
+        <h4>Computer Picked:</h4>
+        <img id="computerRock" class="move-image" src="img/rock.png" alt="Computer Rock" style="display: none;">
+        <img id="computerPaper" class="move-image" src="img/paper.png" alt="Computer Paper" style="display: none;">
+        <img id="computerScissors" class="move-image" src="img/scissors.jpg" alt="Computer Scissors" style="display: none;">
+      </div>
     </div>
-    <div class="comparison">
-      <h4>Computer Picked:</h4>
-      <img id="computerRock" class="move-image" src="img/rock.png" alt="Computer Rock" style="display: none;">
-      <img id="computerPaper" class="move-image" src="img/paper.png" alt="Computer Paper" style="display: none;">
-      <img id="computerScissors" class="move-image" src="img/scissors.jpg" alt="Computer Scissors" style="display: none;">
-    </div>
-  </div>
-  <div id="result" class="result"></div>
   </div>
 </div>
 <h5 style="display: flex; align-items: center; justify-content: center;">@Created by Sulthannn</h5>
-   
 
-  <script>
-    function makemove(userMove) {
-      document.getElementById("rock").style.display = 'none';
-      document.getElementById("paper").style.display = 'none';
-      document.getElementById("scissors").style.display = 'none';
+<div class="modal" id="resultModal">
+  <div class="modal-content">
+    <span class="close" onclick="closeModal()">&times;</span>
+    <p id="resultText"></p>
+  </div>
+</div>
 
-      document.getElementById(userMove).style.display = 'block';
+<script>
+  function makemove(userMove) {
+    document.getElementById("rock").style.display = 'none';
+    document.getElementById("paper").style.display = 'none';
+    document.getElementById("scissors").style.display = 'none';
 
-      const randomNum = Math.random();
-      let computerMove = '';
+    document.getElementById(userMove).style.display = 'block';
 
-      if (randomNum < 1/3) {
-        computerMove = 'rock';
-      } else if (randomNum < 2/3) {
-        computerMove = 'paper';
-      } else {
-        computerMove = 'scissors';
-      }
+    const randomNum = Math.random();
+    let computerMove = '';
 
-      document.getElementById("computerRock").style.display = 'none';
-      document.getElementById("computerPaper").style.display = 'none';
-      document.getElementById("computerScissors").style.display = 'none';
-
-      document.getElementById("computer" + capitalizeFirstLetter(computerMove)).style.display = 'block';
-      result(userMove, computerMove);
+    if (randomNum < 1/3) {
+      computerMove = 'rock';
+    } else if (randomNum < 2/3) {
+      computerMove = 'paper';
+    } else {
+      computerMove = 'scissors';
     }
-    function result(userMove, computerMove) {
+
+    document.getElementById("computerRock").style.display = 'none';
+    document.getElementById("computerPaper").style.display = 'none';
+    document.getElementById("computerScissors").style.display = 'none';
+
+    document.getElementById("computer" + capitalizeFirstLetter(computerMove)).style.display = 'block';
+    result(userMove, computerMove);
+  }
+
+  function result(userMove, computerMove) {
     let resultText = '';
 
     if (userMove === computerMove) {
-      resultText = "Draw";
+      resultText = "Draw     Retry!!!";
     } else if (
       (userMove === 'rock' && computerMove === 'scissors') ||
       (userMove === 'paper' && computerMove === 'rock') ||
       (userMove === 'scissors' && computerMove === 'paper')
     ) {
-      resultText = "You Win";
+      resultText = "You Win.    Nice Luck";
     } else {
-      resultText = "You Lose";
+      resultText = "You Lose.    Bad Luck";
     }
 
-    document.getElementById("result").innerText = resultText;
+    document.getElementById("resultText").innerText = resultText;
+    document.getElementById("resultModal").style.display = "block";
   }
 
+  function closeModal() {
+    document.getElementById("resultModal").style.display = "none";
+  }
 
-    function capitalizeFirstLetter(string) {
-      return string.charAt(0).toUpperCase() + string.slice(1);
-    }
-  </script>
+  function capitalizeFirstLetter(string) {
+    return string.charAt(0).toUpperCase() + string.slice(1);
+  }
+</script>
 </body>
 </html>
