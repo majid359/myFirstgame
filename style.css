@@ -4,12 +4,18 @@
   box-sizing: border-box;
 }
 
+.game {
+  display: flex;
+  flex-direction: column; 
+  align-items: center; 
+}
+
 .game button {
   width: 100px;
   height: 60px;
   border: 2px solid violet;
   font-weight: 600;
-  cursor: pointer;
+  margin: 10px; 
 }
 
 button {
@@ -61,6 +67,7 @@ button:hover {
 .user-comp {
   display: flex;
   justify-content: space-around;
+  flex-wrap: wrap; 
 }
 
 .app {
@@ -74,15 +81,19 @@ button:hover {
   min-height: 100vh;
 }
 
-/* Responsive Styles */
 
 @media only screen and (max-width: 767px) {
   .app {
-    padding: 50px;
+    padding: 20px; 
+  }
+
+  .game {
+    flex-direction: column;
+    align-items: center;
   }
 
   .game button {
-    width: 80px;
+    width: 90%; /* Make buttons responsive */
     height: 50px;
   }
 
@@ -97,6 +108,7 @@ button:hover {
 
   .user-comp {
     flex-direction: column; 
+    align-items: center; 
   }
 }
 
@@ -121,7 +133,6 @@ button:hover {
   }
 }
 
-/* Larger devices */
 @media only screen and (min-width: 1025px) {
   .app {
     padding: 100px;
