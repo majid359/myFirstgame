@@ -99,7 +99,8 @@ button:hover {
     width: 90%;
     height: 50px;
     display: flex;
-    align-items: center; /* Align items in mobile view */
+    align-items: center;
+    justify-content: space-around;
   }
 
   .game button p {
