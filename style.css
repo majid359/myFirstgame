@@ -17,8 +17,6 @@
   font-weight: 600;
   margin: 10px;
   overflow: hidden;
-  display: flex;
-  align-items: center;
   padding: 5px;
 }
 
@@ -45,7 +43,6 @@ button:hover {
 
 .game button p {
   margin: 0;
-  margin-left: 10px;
 }
 
 .game button img {
@@ -61,6 +58,12 @@ button:hover {
   transform: scale(0.8);
 }
 
+.comparison {
+  display: flex;
+  justify-content: space-around;
+  width: 100%;
+}
+
 .comparison img {
   width: 60px;
   height: 60px;
@@ -70,8 +73,10 @@ button:hover {
 
 .user-comp {
   display: flex;
-  justify-content: space-around;
+  justify-content: center; 
+  flex-direction: row; 
   flex-wrap: wrap;
+  width: 100%;
 }
 
 .app {
@@ -93,6 +98,12 @@ button:hover {
   .game button {
     width: 90%;
     height: 50px;
+    display: flex;
+    align-items: center; /* Align items in mobile view */
+  }
+
+  .game button p {
+    margin-left: 10px; /* Space between image and text */
   }
 
   button {
