@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+  </style>
+  <link rel="stylesheet" href="style.css">
+  <title>Document</title>
+  <title>Rock Paper Scissors Game</title>
+</head>
+<body>
+<div class="app">
+  <div>
+    <div class="game">
+      <h1>Choose a move:</h1>
+      <button onclick="makemove('rock')" class="rockbtn">Rock<img src="img/rock.png" alt=""></button>
+      <button onclick="makemove('paper')" class="paperbtn">Paper<img src="img/paper.png" alt=""></button>
+      <button onclick="makemove('scissors')" class="scissorbtn">Scissors<img src="img/scissors.jpg" alt=""></button>
+    </div>
+  <div class="user-comp">
+    <div class="comparison">
+      <h4>You've Picked:</h4>
+      <img id="rock" class="move-image" src="img/rock.png" alt="Rock" style="display: none;">
+      <img id="paper" class="move-image" src="img/paper.png" alt="Paper" style="display: none;">
+      <img id="scissors" class="move-image" src="img/scissors.jpg" alt="Scissors" style="display: none;">
+    </div>
+    <div class="comparison">
+      <h4>Computer Picked:</h4>
+      <img id="computerRock" class="move-image" src="img/" alt="Computer Rock" style="display: none;">
+      <img id="computerPaper" class="move-image" src="img/paper.png" alt="Computer Paper" style="display: none;">
+      <img id="computerScissors" class="move-image" src="img/scissors.jpg" alt="Computer Scissors" style="display: none;">
+    </div>
+  </div>
+  <div id="result" class="result"></div>
+  </div>
+</div>
+<h5 style="display: flex; align-items: center; justify-content: center;">@Created by Sulthannn</h5>
+   
+
+  <script>
+    function makemove(userMove) {
+      document.getElementById("rock").style.display = 'none';
+      document.getElementById("paper").style.display = 'none';
+      document.getElementById("scissors").style.display = 'none';
+
+      document.getElementById(userMove).style.display = 'block';
+
+      const randomNum = Math.random();
+      let computerMove = '';
+
+      if (randomNum < 1/3) {
+        computerMove = 'rock';
+      } else if (randomNum < 2/3) {
+        computerMove = 'paper';
+      } else {
+        computerMove = 'scissors';
+      }
+
+      document.getElementById("computerRock").style.display = 'none';
+      document.getElementById("computerPaper").style.display = 'none';
+      document.getElementById("computerScissors").style.display = 'none';
+
+      document.getElementById("computer" + capitalizeFirstLetter(computerMove)).style.display = 'block';
+      result(userMove, computerMove);
+    }
+    function result(userMove, computerMove) {
+    let resultText = '';
+
+    if (userMove === computerMove) {
+      resultText = "Draw";
+    } else if (
+      (userMove === 'rock' && computerMove === 'scissors') ||
+      (userMove === 'paper' && computerMove === 'rock') ||
+      (userMove === 'scissors' && computerMove === 'paper')
+    ) {
+      resultText = "You Win";
+    } else {
+      resultText = "You Lose";
+    }
+
+    document.getElementById("result").innerText = resultText;
+  }
+
+
+    function capitalizeFirstLetter(string) {
+      return string.charAt(0).toUpperCase() + string.slice(1);
+    }
+  </script>
+</body>
+</html>
