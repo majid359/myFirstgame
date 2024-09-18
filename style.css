@@ -1,0 +1,143 @@
+
+* {
+  font-family: 'Montserrat', sans-serif;
+  box-sizing: border-box;
+}
+
+.game button {
+  width: 100px;
+  height: 60px;
+  border: 2px solid violet;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+button {
+  background-color: blue;
+  padding: 20px;
+  border-radius: 10px;
+  font-family: monospace;
+  font-size: 12px;
+  color: white;
+  transition: background-color 0.3s;
+}
+
+button:hover {
+  background-color: darkblue;
+}
+
+.game .rockbtn {
+  background-color: palevioletred;
+}
+
+.game .paperbtn {
+  background-color: rgb(241, 182, 18);
+}
+
+.game button p {
+  margin: 0;
+}
+
+.game button img {
+  width: 60px;
+  height: 60px;
+  background: transparent;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: transform 0.5s;
+}
+
+.game button img:hover {
+  transform: scale(0.8);
+}
+
+.comparison img {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  display: none;
+}
+
+.user-comp {
+  display: flex;
+  justify-content: space-around;
+}
+
+.app {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: aquamarine;
+  padding: 100px;
+  border-radius: 20px;
+  min-height: 100vh;
+}
+
+/* Responsive Styles */
+
+@media only screen and (max-width: 767px) {
+  .app {
+    padding: 50px;
+  }
+
+  .game button {
+    width: 80px;
+    height: 50px;
+  }
+
+  button {
+    font-size: 10px;
+  }
+
+  .game button img {
+    width: 50px;
+    height: 50px;
+  }
+
+  .user-comp {
+    flex-direction: column; 
+  }
+}
+
+
+@media only screen and (min-width: 768px) and (max-width: 1024px) {
+  .app {
+    padding: 70px;
+  }
+
+  .game button {
+    width: 90px;
+    height: 55px;
+  }
+
+  button {
+    font-size: 11px;
+  }
+
+  .game button img {
+    width: 55px;
+    height: 55px;
+  }
+}
+
+/* Larger devices */
+@media only screen and (min-width: 1025px) {
+  .app {
+    padding: 100px;
+  }
+
+  .game button {
+    width: 100px;
+    height: 60px;
+  }
+
+  button {
+    font-size: 12px;
+  }
+
+  .game button img {
+    width: 60px;
+    height: 60px;
+  }
+}
